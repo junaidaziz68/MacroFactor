@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MacroFactor.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MacroFactor;
 
@@ -15,6 +16,8 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+        
+        builder.Services.AddSingleton<SupabaseService>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
