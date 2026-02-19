@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/MacroFactor.app/libSystem.Security.Cryptography.Native.Apple.dylib

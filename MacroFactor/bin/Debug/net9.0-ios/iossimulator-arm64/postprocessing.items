@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="MacroFactor.app/MacroFactor">
+      <IsAppExtension>false</IsAppExtension>
+      <BCSymbolMapName>MacroFactor.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>MacroFactor.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/J/Desktop/MacroFactor/MacroFactor/obj/Debug/net9.0-ios/iossimulator-arm64/mtouch-symbols.list</SymbolFile>
+      <DSymName>MacroFactor.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/J/Desktop/MacroFactor/MacroFactor</SourceProjectPath>
+      <IsXPCService></IsXPCService>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>

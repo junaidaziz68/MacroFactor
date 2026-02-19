@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/J/Desktop/MacroFactor/MacroFactor/obj/Debug/net9.0-ios/iossimulator-arm64/Entitlements.xcent /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/MacroFactor.app
