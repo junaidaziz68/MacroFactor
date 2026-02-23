@@ -47,3 +47,27 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/J/Desktop/MacroFactor/MacroFactor/Views/AddFoodPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.AddFoodPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddFoodPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddFoodPage.xaml
+
+[/Users/J/Desktop/MacroFactor/MacroFactor/Views/AddWorkoutPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.AddWorkoutPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddWorkoutPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddWorkoutPage.xaml
+
+[/Users/J/Desktop/MacroFactor/MacroFactor/Views/DashboardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.DashboardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/DashboardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/DashboardPage.xaml
+
+[/Users/J/Desktop/MacroFactor/MacroFactor/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LoginPage.xaml

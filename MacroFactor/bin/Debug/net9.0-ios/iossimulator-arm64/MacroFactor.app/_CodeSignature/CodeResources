@@ -18,11 +18,11 @@
 		</data>
 		<key>MacroFactor.dll</key>
 		<data>
-		sBf2UNfMdsw5yz5USKLqDduhYmk=
+		Vg7LeSmM18qliwyeLXfvimDGCco=
 		</data>
 		<key>MacroFactor.pdb</key>
 		<data>
-		hppWkn30mBDtzSLi85FJqvUASR4=
+		p6S6AQWelLMUVQ8zjUBv1mhlJcY=
 		</data>
 		<key>MauiInfo.plist</key>
 		<data>
@@ -80,6 +80,26 @@
 		<data>
 		2RWCfGHihJnMF7Ys/kXc51HP2Pg=
 		</data>
+		<key>Microsoft.IO.RecyclableMemoryStream.dll</key>
+		<data>
+		LjVMXEMKNEVQGQADpqKa+enfi3U=
+		</data>
+		<key>Microsoft.IdentityModel.Abstractions.dll</key>
+		<data>
+		uMBB0y5kEqCuwDJUNP7WhIVZCFY=
+		</data>
+		<key>Microsoft.IdentityModel.JsonWebTokens.dll</key>
+		<data>
+		E9QL4bZB9scYrNCh3Vm8g7koB/8=
+		</data>
+		<key>Microsoft.IdentityModel.Logging.dll</key>
+		<data>
+		LbyyOlYdvQT1mZqpuTggdJr3Eqs=
+		</data>
+		<key>Microsoft.IdentityModel.Tokens.dll</key>
+		<data>
+		dSzYBQm763DE8QQBAOlMu1NDim4=
+		</data>
 		<key>Microsoft.Maui.Controls.Xaml.dll</key>
 		<data>
 		LgfCZMHus4Tm3hp6FHWrMNGxRls=
@@ -124,9 +144,17 @@
 		<data>
 		HdVTZs82Qi/WRJVnrj4WnqgnsrE=
 		</data>
+		<key>MimeMapping.dll</key>
+		<data>
+		38x5m3xXeLCw5FhdJ1iAThuZBnA=
+		</data>
 		<key>MonoTouchDebugConfiguration.txt</key>
 		<data>
-		2zR4ks26nRmrWJES2ss5zRbdSTs=
+		HlmAtjuZZYt4rOfUtxY3eRZ7cWA=
+		</data>
+		<key>Newtonsoft.Json.dll</key>
+		<data>
+		8xMPf9S0FLWuwE64ftgA64TdIVQ=
 		</data>
 		<key>OpenSans-Regular.ttf</key>
 		<data>
@@ -147,6 +175,34 @@
 		<key>Settings.bundle/Root.plist</key>
 		<data>
 		nrVMGKClE6pvxn6IcBgG4it6i0A=
+		</data>
+		<key>Supabase.Core.dll</key>
+		<data>
+		Y4sm/bA6TkUmAqjgWmbh+E7OMwE=
+		</data>
+		<key>Supabase.Functions.dll</key>
+		<data>
+		/im0HcQY7cQSBzB5iB6F8bdVTuI=
+		</data>
+		<key>Supabase.Gotrue.dll</key>
+		<data>
+		iigdYuF+cGdxkC7v99zHmz2acdE=
+		</data>
+		<key>Supabase.Postgrest.dll</key>
+		<data>
+		fagjBQ6fcEsdDP8qumPaDumgzkE=
+		</data>
+		<key>Supabase.Realtime.dll</key>
+		<data>
+		+tbag7gF6R0Cw/hhTf8GvFf5Lak=
+		</data>
+		<key>Supabase.Storage.dll</key>
+		<data>
+		auDxhpMr9WBOIe2xVBZo0pT/oIw=
+		</data>
+		<key>Supabase.dll</key>
+		<data>
+		JiAA9xbikBQSJMvf08RP8oMW4i4=
 		</data>
 		<key>System.AppContext.dll</key>
 		<data>
@@ -360,6 +416,10 @@
 		<data>
 		7YTRNb61kaCjfw/Wp6NzY6De3CA=
 		</data>
+		<key>System.IdentityModel.Tokens.Jwt.dll</key>
+		<data>
+		uQLaf5fPaOA0oa78tvylwbR6xYk=
+		</data>
 		<key>System.Linq.Expressions.dll</key>
 		<data>
 		EtIKzy03zkePN6Z4/WTnwyTjdEQ=
@@ -491,6 +551,10 @@
 		<key>System.Private.Xml.dll</key>
 		<data>
 		HhzY1qH40BSDLry0/FnIEHCShw0=
+		</data>
+		<key>System.Reactive.dll</key>
+		<data>
+		OQ+6NeVNCXL5XOFCXSyFy3c08G8=
 		</data>
 		<key>System.Reflection.DispatchProxy.dll</key>
 		<data>
@@ -796,6 +860,10 @@
 		<data>
 		pFktfGoDEiHP/WY5UDfzavx6t9Y=
 		</data>
+		<key>Websocket.Client.dll</key>
+		<data>
+		nLQy7HgV4pU1fsXdjCKfMT0WUT4=
+		</data>
 		<key>WindowsBase.dll</key>
 		<data>
 		6kr1ZObFDiPlhq1Woo27pCLxH08=
@@ -1045,14 +1113,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sTcwwyvEnOpzHKWO5KOmyn5BSObazmNtHXAOzIGFwaU=
+			GfpznYBLk9hyhH22pkHSQIjcivlK8yn2s0sf3AYdAng=
 			</data>
 		</dict>
 		<key>MacroFactor.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BlLWW9FmvJG9R4Yn1sCqQTijDInQ3mM6A70gzy+wCgE=
+			DerOyhByNgU13/CuZBvDb2PVOxzuMcPEfpzNKtohBCA=
 			</data>
 		</dict>
 		<key>MauiInfo.plist</key>
@@ -1153,6 +1221,41 @@
 			a/AFLkBF2JOQlgsydBo/T0cFAFbIcK1f4YnT3qcBgso=
 			</data>
 		</dict>
+		<key>Microsoft.IO.RecyclableMemoryStream.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ryT6NCt/nwhifrGy+UEPL2SXCx4TXF/kg3h4+Ks+y2g=
+			</data>
+		</dict>
+		<key>Microsoft.IdentityModel.Abstractions.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QdUcesrTzdgqv+tvYfz5p0fVoT1Kc7Ogsd0cUfjlmqk=
+			</data>
+		</dict>
+		<key>Microsoft.IdentityModel.JsonWebTokens.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xULAzXU914wjK7md+5a6mFjnUBZTZOJDxVUk3+NNUqQ=
+			</data>
+		</dict>
+		<key>Microsoft.IdentityModel.Logging.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			sMx8XWG4BKVzYi+F9t67bg9bOYGeHU1QyKkZNfoUE/k=
+			</data>
+		</dict>
+		<key>Microsoft.IdentityModel.Tokens.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2QhIFrrPiaIkH/Usc7SbpR4CaEidCAyFPEZl8/ipisM=
+			</data>
+		</dict>
 		<key>Microsoft.Maui.Controls.Xaml.dll</key>
 		<dict>
 			<key>hash2</key>
@@ -1230,11 +1333,25 @@
 			G5tQWrOoNmRz2+/P8NSl/IolZEp+G62mYkmnXajsDjo=
 			</data>
 		</dict>
+		<key>MimeMapping.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aDT1phBFbtQuu2dKG0fMtPeNJLuPRJ+CH2/3h8BGAzs=
+			</data>
+		</dict>
 		<key>MonoTouchDebugConfiguration.txt</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eW7FvsmnaEr6YUjyFl+rAG3mFygiT4IO+WNFcUVX9Gw=
+			n/NMp5DkQGppkjpBoyoV1mhEK36L/cuHFrOabOQafS0=
+			</data>
+		</dict>
+		<key>Newtonsoft.Json.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IsZJ91/OW+fHzNqIgEc7Y072ns8z9dGritiSyvR9Wgc=
 			</data>
 		</dict>
 		<key>OpenSans-Regular.ttf</key>
@@ -1263,6 +1380,55 @@
 			<key>hash2</key>
 			<data>
 			zi1Y0A+tVNNfppRDjT3LpbeC+xDRJTirIvMQJ0HkgMQ=
+			</data>
+		</dict>
+		<key>Supabase.Core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0J7JrvsCWPIGGOHvg6eQdlbowQJX88M1w8PLuGp/yvs=
+			</data>
+		</dict>
+		<key>Supabase.Functions.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BtNMx8dlAOsu+eIsvIQnzsvJGN6CC8OyJyOEdjYRNqo=
+			</data>
+		</dict>
+		<key>Supabase.Gotrue.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fZ/Rhvte1/pcm4zsKm9J7f0QUo4nFSSNX7E9aUj9d8w=
+			</data>
+		</dict>
+		<key>Supabase.Postgrest.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iAFhZnpd/Np1iUK1EMWgcALjZl7dpOB/JTlLX1Mswl0=
+			</data>
+		</dict>
+		<key>Supabase.Realtime.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FO99ZdaMVo2lG136nVvZBAPEzr4IyyQaVJH9zyZs/Jk=
+			</data>
+		</dict>
+		<key>Supabase.Storage.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xcpFFVCKg9rWvQrN57I/g2PbZXtlHVR4/vglbmIodnQ=
+			</data>
+		</dict>
+		<key>Supabase.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Kon62RCQ4pqGTawYsp9LgAVwT/66ptahk8JIgsdBQvk=
 			</data>
 		</dict>
 		<key>System.AppContext.dll</key>
@@ -1636,6 +1802,13 @@
 			OOnmu0LWMg3II4MITzE6lNQO4RjB0simzv2MmwjurXU=
 			</data>
 		</dict>
+		<key>System.IdentityModel.Tokens.Jwt.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5U8bXTHnkyF6fEtHFQ/OJiMWn1pUZuQ1WGtyeN997MQ=
+			</data>
+		</dict>
 		<key>System.Linq.Expressions.dll</key>
 		<dict>
 			<key>hash2</key>
@@ -1865,6 +2038,13 @@
 			<key>hash2</key>
 			<data>
 			FnlSygH6mc2ElGfebvUVONJ58rEXRw18e8+j2S3v6O8=
+			</data>
+		</dict>
+		<key>System.Reactive.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vmAusBgX3fXx7T83d4fGX2j1CdZmiDAsAweXzoUfjiE=
 			</data>
 		</dict>
 		<key>System.Reflection.DispatchProxy.dll</key>
@@ -2397,6 +2577,13 @@
 			<key>hash2</key>
 			<data>
 			q/0eEf44IqhErsWqB9z+uICCaDH4065Roz8KfZbG7aI=
+			</data>
+		</dict>
+		<key>Websocket.Client.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			F6AeDTtj6Dwn4o/AIjw1ci16h2Tt+LKeZ3imStheUb4=
 			</data>
 		</dict>
 		<key>WindowsBase.dll</key>

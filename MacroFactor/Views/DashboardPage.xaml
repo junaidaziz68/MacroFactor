@@ -1,0 +1,32 @@
+<ContentPage
+    x:Class="MacroFactor.Views.DashboardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Dashboard">
+
+    <VerticalStackLayout Padding="30" Spacing="20">
+
+        
+        
+        <Label
+            
+            Text="Hello Bob"
+            FontSize="40"
+            HorizontalOptions="Center" />
+        
+        
+        <Label
+            
+            Text="Today's Calories"
+            FontSize="24"
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="{Binding TotalCalories}"
+            FontSize="48"
+            HorizontalOptions="Center"
+            TextColor="Green" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
