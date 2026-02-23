@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MacroFactor.Services;
+using MacroFactor.ViewModels;
+using MacroFactor.Views;
+using Microsoft.Extensions.Logging;
 
 namespace MacroFactor;
 
@@ -15,6 +18,10 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+        
+        builder.Services.AddSingleton<SupabaseService>();
+        builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddSingleton<LoginViewModel>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
