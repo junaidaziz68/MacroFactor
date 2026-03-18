@@ -2,10 +2,78 @@
     x:Class="MacroFactor.Views.AddWorkoutPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Workouts">
+    Title="Workouts"
+    BackgroundColor="{AppThemeBinding Light=#F3F4F6, Dark=#111827}">
 
-    <VerticalStackLayout Padding="30">
-        <Label Text="Add Workout Page" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <!-- Title for tracking workout session -->
+            <Label Text="Log Workout"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#111827, Dark=White}"
+                   Margin="0,10,0,10"/>
+
+            <Border StrokeShape="RoundRectangle 16"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    Padding="20">
+                
+                <!-- Grouping the workout inputs inside a styled border card -->
+                <VerticalStackLayout Spacing="15">
+                    
+                    <VerticalStackLayout Spacing="5">
+                        <!-- The specific exercise being performed -->
+                        <Label Text="Exercise Name" TextColor="#6B7280" FontSize="14"/>
+                        <Entry Placeholder="e.g., Bench Press" 
+                               BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
+                               TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                    </VerticalStackLayout>
+
+                    <!-- Organize the numeric metrics (sets, reps, weight) side-by-side for a compact layout -->
+                    <Grid ColumnDefinitions="*, *, *" ColumnSpacing="10">
+                        <!-- Sets -->
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="Sets" TextColor="#6B7280" FontSize="14"/>
+                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                        </VerticalStackLayout>
+
+                        <!-- Reps -->
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Reps" TextColor="#6B7280" FontSize="14"/>
+                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                        </VerticalStackLayout>
+
+                        <!-- Weight -->
+                        <VerticalStackLayout Grid.Column="2" Spacing="5">
+                            <Label Text="Weight (lbs/kg)" TextColor="#6B7280" FontSize="14"/>
+                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="5">
+                        <!-- Providing a multi-line editor so the user can add extra context for this exercise -->
+                        <Label Text="Notes" TextColor="#6B7280" FontSize="14"/>
+                        <Editor Placeholder="Optional notes about your workout" 
+                                HeightRequest="80"
+                                BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
+                                TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Log Workout"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
