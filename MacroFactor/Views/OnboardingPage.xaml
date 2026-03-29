@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MacroFactor.Views.OnboardingPage"
+             Title="Calories &amp; Macros Calculator"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Welcome! Let's set your goals." FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+
+            <Grid ColumnDefinitions="*, *" RowSpacing="15" ColumnSpacing="15">
+                <!-- Age -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                    <Label Text="Age" TextColor="LightGray" />
+                    <Entry Text="{Binding Age}" Keyboard="Numeric" BackgroundColor="#222" TextColor="White" />
+                </VerticalStackLayout>
+                
+                <!-- Weight -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                    <Label Text="Weight (kg)" TextColor="LightGray" />
+                    <Entry Text="{Binding Weight}" Keyboard="Numeric" BackgroundColor="#222" TextColor="White" />
+                </VerticalStackLayout>
+
+                <!-- Height -->
+                <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+                    <Label Text="Height (cm)" TextColor="LightGray" />
+                    <Entry Text="{Binding Height}" Keyboard="Numeric" BackgroundColor="#222" TextColor="White" />
+                </VerticalStackLayout>
+
+                <!-- Gender -->
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                    <Label Text="Gender" TextColor="LightGray" />
+                    <Picker SelectedItem="{Binding Gender}" BackgroundColor="#222" TextColor="White" Title="Select Gender" TitleColor="Gray">
+                        <Picker.Items>
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Activity Level -->
+            <Label Text="Activity Level" TextColor="LightGray" />
+            <Picker SelectedItem="{Binding ActivityLevel}" BackgroundColor="#222" TextColor="White" Title="Select Activity Level" TitleColor="Gray">
+                <Picker.Items>
+                    <x:String>Sedentary</x:String>
+                    <x:String>Lightly Active</x:String>
+                    <x:String>Moderately Active</x:String>
+                    <x:String>Very Active</x:String>
+                    <x:String>Extra Active</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Goal -->
+            <Label Text="Goal" TextColor="LightGray" />
+            <Picker SelectedItem="{Binding Goal}" BackgroundColor="#222" TextColor="White" Title="Select Goal" TitleColor="Gray">
+                <Picker.Items>
+                    <x:String>Lose Weight</x:String>
+                    <x:String>Maintain Weight</x:String>
+                    <x:String>Gain Weight</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Calculate My Macros" Command="{Binding CalculateCommand}" BackgroundColor="#512BD4" TextColor="White" CornerRadius="8" Margin="0,15,0,0" HeightRequest="50" FontSize="18" FontAttributes="Bold" />
+
+            <!-- Results Section (Visible only if IsCalculated is true) -->
+            <Border Stroke="#333" BackgroundColor="#111" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="15" Margin="0,20,0,0" IsVisible="{Binding IsCalculated}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Your Daily Targets" FontSize="20" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="{Binding TargetCalories, StringFormat='Calories: {0} kcal'}" TextColor="#00E676" FontSize="18" HorizontalOptions="Center" />
+                    
+                    <Grid ColumnDefinitions="*,*,*">
+                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                            <Label Text="Protein" TextColor="LightGray" />
+                            <Label Text="{Binding TargetProtein, StringFormat='{0}g'}" TextColor="White" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                            <Label Text="Carbs" TextColor="LightGray" />
+                            <Label Text="{Binding TargetCarbs, StringFormat='{0}g'}" TextColor="White" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                            <Label Text="Fats" TextColor="LightGray" />
+                            <Label Text="{Binding TargetFats, StringFormat='{0}g'}" TextColor="White" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Button Text="Continue to Dashboard" Command="{Binding ContinueCommand}" BackgroundColor="#00E676" TextColor="Black" CornerRadius="8" Margin="0,15,0,0" HeightRequest="50" FontSize="18" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
