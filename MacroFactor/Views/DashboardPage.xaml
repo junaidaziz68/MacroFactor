@@ -8,7 +8,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
             <!-- Personalized greeting section, tied to the user's name later if we add a user model -->
-            <Label Text="Welcome back, Bob!"
+            <Label Text="{Binding GreetingMessage, FallbackValue='Welcome back!'}"
                    FontSize="28"
                    FontAttributes="Bold"
                    TextColor="{AppThemeBinding Light=#111827, Dark=White}"
@@ -25,14 +25,14 @@
                     Stroke="#E5E7EB"
                     StrokeThickness="1"
                     Padding="24">
-                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
-                    <Label Text="Calories Remaining" FontSize="16" TextColor="#6B7280" HorizontalOptions="Center"/>
-                    <Label Text="{Binding TotalCalories, TargetNullValue='2100'}" 
+                <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                    <Label Text="Today's Progress" FontSize="16" TextColor="#6B7280" HorizontalOptions="Center"/>
+                    <Label Text="{Binding Tracker.TotalDailyCalories, FallbackValue='0'}" 
                            FontSize="48" 
                            FontAttributes="Bold" 
                            TextColor="{AppThemeBinding Light=#10B981, Dark=#34D399}" 
                            HorizontalOptions="Center" />
-                    <Label Text="Goal: 2500 kcal" FontSize="14" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                    <Label Text="{Binding TargetCalories, StringFormat='Goal: {0} kcal'}" FontSize="16" TextColor="#9CA3AF" HorizontalOptions="Center" />
                 </VerticalStackLayout>
             </Border>
 
@@ -42,7 +42,8 @@
                 <Border Grid.Column="0" StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Stroke="#E5E7EB" StrokeThickness="1" Padding="15,20">
                     <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
                         <Label Text="Protein" FontSize="14" TextColor="#6B7280" HorizontalOptions="Center"/>
-                        <Label Text="120g" FontSize="20" FontAttributes="Bold" TextColor="#3B82F6" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Tracker.TotalDailyProtein, StringFormat='{0}g'}" FontSize="20" FontAttributes="Bold" TextColor="#3B82F6" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TargetProtein, StringFormat='Goal: {0}g'}" FontSize="12" TextColor="#9CA3AF" HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Border>
 
@@ -50,7 +51,8 @@
                 <Border Grid.Column="1" StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Stroke="#E5E7EB" StrokeThickness="1" Padding="15,20">
                     <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
                         <Label Text="Carbs" FontSize="14" TextColor="#6B7280" HorizontalOptions="Center"/>
-                        <Label Text="200g" FontSize="20" FontAttributes="Bold" TextColor="#F59E0B" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Tracker.TotalDailyCarbs, StringFormat='{0}g'}" FontSize="20" FontAttributes="Bold" TextColor="#F59E0B" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TargetCarbs, StringFormat='Goal: {0}g'}" FontSize="12" TextColor="#9CA3AF" HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Border>
 
@@ -58,7 +60,8 @@
                 <Border Grid.Column="2" StrokeShape="RoundRectangle 12" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Stroke="#E5E7EB" StrokeThickness="1" Padding="15,20">
                     <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
                         <Label Text="Fats" FontSize="14" TextColor="#6B7280" HorizontalOptions="Center"/>
-                        <Label Text="65g" FontSize="20" FontAttributes="Bold" TextColor="#EF4444" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Tracker.TotalDailyFats, StringFormat='{0}g'}" FontSize="20" FontAttributes="Bold" TextColor="#EF4444" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TargetFats, StringFormat='Goal: {0}g'}" FontSize="12" TextColor="#9CA3AF" HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Border>
             </Grid>
@@ -66,14 +69,16 @@
             <!-- Quick Action buttons to allow the user to immediately jump into logging their activity -->
             <Label Text="Quick Actions" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
 
-            <Button Text="+ Add Food"
+            <Button Text="🍎 Add Food"
+                    Command="{Binding NavigateToAddFoodCommand}"
                     BackgroundColor="Black"
                     TextColor="White"
                     CornerRadius="8"
                     HeightRequest="50"
                     FontAttributes="Bold"/>
 
-            <Button Text="+ Add Workout"
+            <Button Text="💪 Add Workout"
+                    Command="{Binding NavigateToAddWorkoutCommand}"
                     BackgroundColor="Black"
                     TextColor="White"
                     CornerRadius="8"
