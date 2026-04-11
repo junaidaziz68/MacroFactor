@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MacroFactor.Views.WeightProgressPage"
+             Title="Progress"
+             BackgroundColor="{AppThemeBinding Light=#F3F4F6, Dark=#111827}">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        
+        <Label Text="Weight Tracker" FontSize="28" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+        <!-- Native Chart Canvas via Drawable -->
+        <Border StrokeShape="RoundRectangle 16" Stroke="#E5E7EB" StrokeThickness="1" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Padding="10">
+            <GraphicsView x:Name="weightGraph" Drawable="{Binding ChartDrawable}" HeightRequest="200" HorizontalOptions="FillAndExpand" />
+        </Border>
+
+        <!-- Input Section -->
+        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" CornerRadius="12" Padding="15" BorderColor="#E5E7EB" HasShadow="False">
+            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                <Entry Grid.Column="0" 
+                       Placeholder="Log today's weight..." 
+                       Keyboard="Numeric"
+                       Text="{Binding CurrentWeightInput}" />
+                <Button Grid.Column="1" 
+                        Text="Log" 
+                        Command="{Binding LogWeightCommand}"
+                        BackgroundColor="#10B981" 
+                        TextColor="White" 
+                        CornerRadius="8" 
+                        FontAttributes="Bold"
+                        Clicked="OnLogClicked"/>
+            </Grid>
+        </Frame>
+
+        <!-- Ledger -->
+        <Label Text="History" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0"/>
+        
+        <CollectionView ItemsSource="{Binding WeightLogs}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 8" BackgroundColor="Transparent" Stroke="Transparent" Padding="0,10">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Grid.Column="0" Text="{Binding Date, StringFormat='{0:MMM dd, yyyy}'}" TextColor="#6B7280" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="{Binding Weight, StringFormat='{0:F1}'}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=Black, Dark=White}" VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
