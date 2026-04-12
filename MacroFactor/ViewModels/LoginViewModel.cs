@@ -127,7 +127,25 @@ public class LoginViewModel : INotifyPropertyChanged
 
             if (result?.User != null)
             {
-                Application.Current.Windows[0].Page = new AppShell();
+                var profileResponse = await client.From<MacroFactor.Models.UserProfile>()
+                                                  .Filter("id", Supabase.Postgrest.Constants.Operator.Equals, result.User.Id)
+                                                  .Get();
+                
+                var profile = profileResponse?.Models?.FirstOrDefault();
+                bool hasCompletedOnboarding = profile != null && profile.TargetCalories > 0;
+
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    if (hasCompletedOnboarding)
+                    {
+                        Application.Current.MainPage = new AppShell();
+                    }
+                    else
+                    {
+                        var onboardingViewModel = new OnboardingViewModel(_supabaseService);
+                        Application.Current.MainPage = new NavigationPage(new Views.OnboardingPage(onboardingViewModel));
+                    }
+                });
             }
               
         }
