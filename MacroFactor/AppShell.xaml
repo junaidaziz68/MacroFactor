@@ -5,17 +5,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:MacroFactor.Views">
 
+    <!-- Premium Styling for the TabBar -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Light=White, Dark=#111827}" />
+                <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Light=#9CA3AF, Dark=#4B5563}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
     <TabBar>
-        <Tab Title="Dashboard" Icon="home.png">
-            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}" />
+        <Tab Title="🏠 Dashboard" Icon="dashboard_icon.png">
+            <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:DashboardPage}" />
         </Tab>
 
-        <Tab Title="Add Food" Icon="plus.png">
-            <ShellContent ContentTemplate="{DataTemplate views:AddFoodPage}" />
+        <Tab Title="🍎 Food" Icon="food_icon.png">
+            <ShellContent Route="AddFoodPage" ContentTemplate="{DataTemplate views:AddFoodPage}" />
         </Tab>
 
-        <Tab Title="Workout" Icon="dumbbell.png">
-            <ShellContent ContentTemplate="{DataTemplate views:AddWorkoutPage}" />
+        <Tab Title="💪 Workout" Icon="dumbbell_icon.png">
+            <ShellContent Route="AddWorkoutPage" ContentTemplate="{DataTemplate views:AddWorkoutPage}" />
+        </Tab>
+
+        <Tab Title="📈 Progress">
+            <ShellContent Route="WeightProgressPage" ContentTemplate="{DataTemplate views:WeightProgressPage}" />
         </Tab>
     </TabBar>
 

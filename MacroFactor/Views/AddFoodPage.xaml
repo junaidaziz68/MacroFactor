@@ -8,72 +8,202 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
             
-            <!-- Page heading -->
-            <Label Text="Log New Food"
-                   FontSize="28"
-                   FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light=#111827, Dark=White}"
-                   Margin="0,10,0,10"/>
-
-            <Border StrokeShape="RoundRectangle 16"
-                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}"
-                    Stroke="#E5E7EB"
-                    StrokeThickness="1"
-                    Padding="20">
+            <!-- ====== DIARY VIEW ====== -->
+            <VerticalStackLayout IsVisible="{Binding IsDiaryViewVisible}" Spacing="20">
                 
-                <!-- Form fields grouped in a vertical stack for clean visual flow -->
-                <VerticalStackLayout Spacing="15">
-                    
-                    <VerticalStackLayout Spacing="5">
-                        <!-- We capture the name of the food item here -->
-                        <Label Text="Food Name" TextColor="#6B7280" FontSize="14"/>
-                        <Entry Placeholder="e.g., Chicken Breast" 
-                               BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
-                               TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                <Label Text="Daily Diary"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light=#111827, Dark=White}"
+                       Margin="0,10,0,10"/>
+
+                <!-- Daily Macro Summary -->
+                <Border StrokeShape="RoundRectangle 16" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Stroke="#E5E7EB" StrokeThickness="1" Padding="20">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Total Daily macros" TextColor="#6B7280" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TotalDailyCalories, StringFormat='{0} kcal'}" FontSize="36" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#10B981, Dark=#34D399}" HorizontalOptions="Center" />
+                        
+                        <Grid ColumnDefinitions="*, *, *" ColumnSpacing="10" Margin="0,10,0,0">
+                            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                                <Label Text="Protein" FontSize="12" TextColor="#6B7280" HorizontalOptions="Center"/>
+                                <Label Text="{Binding TotalDailyProtein, StringFormat='{0}g'}" FontSize="16" FontAttributes="Bold" TextColor="#3B82F6" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                                <Label Text="Carbs" FontSize="12" TextColor="#6B7280" HorizontalOptions="Center"/>
+                                <Label Text="{Binding TotalDailyCarbs, StringFormat='{0}g'}" FontSize="16" FontAttributes="Bold" TextColor="#F59E0B" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                                <Label Text="Fats" FontSize="12" TextColor="#6B7280" HorizontalOptions="Center"/>
+                                <Label Text="{Binding TotalDailyFats, StringFormat='{0}g'}" FontSize="16" FontAttributes="Bold" TextColor="#EF4444" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Grid>
                     </VerticalStackLayout>
+                </Border>
 
-                    <VerticalStackLayout Spacing="5">
-                        <!-- Total calories, using 'Numeric' keyboard to ensure only valid number input -->
-                        <Label Text="Calories (kcal)" TextColor="#6B7280" FontSize="14"/>
-                        <Entry Placeholder="0" 
-                               Keyboard="Numeric"
-                               BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
-                               TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                <!-- Meals List -->
+                <CollectionView ItemsSource="{Binding Meals}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Spacing="10" Margin="0,0,0,25">
+                                <!-- Meal Header -->
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Grid.Column="0" Text="{Binding Name}" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111827, Dark=White}" VerticalOptions="Center"/>
+                                    <Label Grid.Column="1" Text="{Binding TotalCalories, StringFormat='{0} kcal'}" FontSize="16" FontAttributes="Bold" TextColor="#6B7280" VerticalOptions="Center"/>
+                                </Grid>
+                                <BoxView HeightRequest="1" Color="#E5E7EB" />
+
+                                <!-- Logged Foods in this Meal -->
+                                <VerticalStackLayout BindableLayout.ItemsSource="{Binding Foods}" Spacing="5">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid ColumnDefinitions="*, Auto" Padding="0,5">
+                                                <VerticalStackLayout Grid.Column="0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Name}" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111827, Dark=White}"/>
+                                                    <Label Text="{Binding Calories, StringFormat='{0} kcal'}" FontSize="12" TextColor="#6B7280"/>
+                                                </VerticalStackLayout>
+
+                                                <!-- Edit / Delete Food actions -->
+                                                <HorizontalStackLayout Grid.Column="1" Spacing="8" VerticalOptions="Center">
+                                                    <Button Text="Edit" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditFoodCommand}"
+                                                            CommandParameter="{Binding .}"
+                                                            BackgroundColor="Transparent"
+                                                            TextColor="#10B981"
+                                                            Padding="5,0"/>
+                                                    <Button Text="Delete" 
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteFoodCommand}"
+                                                            CommandParameter="{Binding .}"
+                                                            BackgroundColor="Transparent"
+                                                            TextColor="#EF4444"
+                                                            Padding="5,0"/>
+                                                </HorizontalStackLayout>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </VerticalStackLayout>
+
+                                <!-- Add Food Button for this specific meal -->
+                                <Button Text="+ Add Food" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenSearchForMealCommand}"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="Transparent"
+                                        TextColor="#3B82F6"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Start"
+                                        Margin="0,5,0,0" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+            <!-- ====== SEARCH VIEW ====== -->
+            <VerticalStackLayout IsVisible="{Binding IsSearchViewVisible}" Spacing="20">
+                <Grid ColumnDefinitions="Auto, *">
+                    <Button Grid.Column="0" Text="Back" Command="{Binding CancelSearchCommand}" BackgroundColor="Transparent" TextColor="#3B82F6" FontAttributes="Bold" Margin="0,0,10,0"/>
+                    <Label Grid.Column="1" Text="Search Food" FontSize="28" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111827, Dark=White}" VerticalOptions="Center"/>
+                </Grid>
+
+                <Border StrokeShape="RoundRectangle 16" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Stroke="#E5E7EB" StrokeThickness="1" Padding="20">
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                            <Entry Grid.Column="0" 
+                                   Placeholder="Search for food..." 
+                                   Text="{Binding SearchQuery}"
+                                   BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
+                                   TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            <Button Grid.Column="1" 
+                                    Text="Search" 
+                                    Command="{Binding SearchFoodCommand}"
+                                    BackgroundColor="Black" 
+                                    TextColor="White" />
+                        </Grid>
+                        
+                        <ActivityIndicator IsRunning="{Binding IsSearching}" IsVisible="{Binding IsSearching}" HeightRequest="40" />
+                        
+                        <CollectionView ItemsSource="{Binding SearchResults}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Stroke="#E5E7EB" StrokeThickness="1" StrokeShape="RoundRectangle 8" Margin="0,5" BackgroundColor="{AppThemeBinding Light=White, Dark=#374151}">
+                                        <Grid ColumnDefinitions="*, Auto" Padding="15">
+                                            <VerticalStackLayout Grid.Column="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                                                <Label Text="{Binding Description}" FontSize="12" TextColor="#6B7280" />
+                                            </VerticalStackLayout>
+                                            
+                                            <!-- Explicit button to guarantee the click never fails -->
+                                            <Button Grid.Column="1" 
+                                                    Text="Add +" 
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectFoodCommand}" 
+                                                    CommandParameter="{Binding .}"
+                                                    BackgroundColor="#10B981" 
+                                                    TextColor="White" 
+                                                    FontAttributes="Bold" 
+                                                    CornerRadius="8" 
+                                                    VerticalOptions="Center" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
 
-                    <!-- Group all three macros together into a 3-column grid to save vertical screen space -->
-                    <Grid ColumnDefinitions="*, *, *" ColumnSpacing="10">
-                        <!-- Protein -->
-                        <VerticalStackLayout Grid.Column="0" Spacing="5">
-                            <Label Text="Protein (g)" TextColor="#6B7280" FontSize="14"/>
-                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+            <!-- ====== EDIT FOOD VIEW ====== -->
+            <VerticalStackLayout IsVisible="{Binding IsEditFoodVisible}" Spacing="20">
+                <Grid ColumnDefinitions="Auto, *">
+                    <Button Grid.Column="0" Text="Cancel" Command="{Binding CancelEditCommand}" BackgroundColor="Transparent" TextColor="#EF4444" FontAttributes="Bold" Margin="0,0,10,0"/>
+                    <Label Grid.Column="1" Text="Edit Logged Food" FontSize="28" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111827, Dark=White}" VerticalOptions="Center"/>
+                </Grid>
+
+                <Border StrokeShape="RoundRectangle 16" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Stroke="#E5E7EB" StrokeThickness="1" Padding="20">
+                    <VerticalStackLayout Spacing="15">
+                        
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Food Name" TextColor="#6B7280" FontSize="14"/>
+                            <Entry Text="{Binding EditFoodName}" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
                         </VerticalStackLayout>
 
-                        <!-- Carbs -->
-                        <VerticalStackLayout Grid.Column="1" Spacing="5">
-                            <Label Text="Carbs (g)" TextColor="#6B7280" FontSize="14"/>
-                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
-                        </VerticalStackLayout>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="Calories (kcal)" TextColor="#6B7280" FontSize="14"/>
+                                <Entry Text="{Binding EditFoodCalories}" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Protein (g)" TextColor="#6B7280" FontSize="14"/>
+                                <Entry Text="{Binding EditFoodProtein}" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            </VerticalStackLayout>
+                        </Grid>
 
-                        <!-- Fats -->
-                        <VerticalStackLayout Grid.Column="2" Spacing="5">
-                            <Label Text="Fats (g)" TextColor="#6B7280" FontSize="14"/>
-                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
-                        </VerticalStackLayout>
-                    </Grid>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="Carbs (g)" TextColor="#6B7280" FontSize="14"/>
+                                <Entry Text="{Binding EditFoodCarbs}" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            </VerticalStackLayout>
 
-                </VerticalStackLayout>
-            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Fats (g)" TextColor="#6B7280" FontSize="14"/>
+                                <Entry Text="{Binding EditFoodFats}" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            </VerticalStackLayout>
+                        </Grid>
 
-            <Button Text="Log Food"
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    CornerRadius="8"
-                    HeightRequest="50"
-                    FontAttributes="Bold"
-                    Margin="0,20,0,0"/>
+                        <Button Text="Save Changes"
+                                Command="{Binding SaveEditedFoodCommand}"
+                                BackgroundColor="Black"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50"
+                                FontAttributes="Bold"
+                                Margin="0,15,0,0"/>
+                                
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
 
-</ContentPage>
+</ContentPage>  
