@@ -1,6 +1,7 @@
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/MacroFactor.runtimeconfig.json
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/MacroFactor.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/MacroFactor.pdb
+/Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/CommunityToolkit.Mvvm.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/Microsoft.Extensions.Configuration.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/Microsoft.Extensions.Configuration.Abstractions.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/Microsoft.Extensions.DependencyInjection.dll

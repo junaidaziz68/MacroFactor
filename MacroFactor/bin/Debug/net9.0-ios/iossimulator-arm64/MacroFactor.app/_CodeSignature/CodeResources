@@ -12,17 +12,21 @@
 		<data>
 		H1MVWaJ9NAVIYgXJ0uXd87MZdhE=
 		</data>
+		<key>CommunityToolkit.Mvvm.dll</key>
+		<data>
+		MPU8jPoBMsL06FpbCWXg0X+rb+Y=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		DZMQcQQUDzW0MF6jzDM3ARk7WPE=
 		</data>
 		<key>MacroFactor.dll</key>
 		<data>
-		LwpibWr1VelCWfxd61V3hsaz9Hw=
+		aOVhgVIuyxCQYyYnjBOHCew7+UA=
 		</data>
 		<key>MacroFactor.pdb</key>
 		<data>
-		w1vHXLH2MIHCzSf7lCZKXlwEMJQ=
+		IpBYAm+KLW0XisAb0pbtCHBMiWo=
 		</data>
 		<key>MauiInfo.plist</key>
 		<data>
@@ -1109,18 +1113,25 @@
 			OSybH41WetFAwZp5yhp2thNWwwrK1gminCdhIrbNC6I=
 			</data>
 		</dict>
+		<key>CommunityToolkit.Mvvm.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oqsulFVnM7C7ilbH956OoKNj+YTEmgrnV+MponOkV3Q=
+			</data>
+		</dict>
 		<key>MacroFactor.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EcJbzMvLvLBdJ50ydFFdlNKaTzPaxB818Jl2ljVr8E4=
+			F7r7g6kZwm/JbzSZXKIE6Mvyx1PSkFbF6GMe9IPn7Os=
 			</data>
 		</dict>
 		<key>MacroFactor.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ko8h0xSYfZ6ogFMtr8IK4xlyB/JjfrecrkfuqiMy/UQ=
+			jFOM6aUFX2q6O49LX98JjmitHkzrCfXWFSKcFgwYQYs=
 			</data>
 		</dict>
 		<key>MauiInfo.plist</key>

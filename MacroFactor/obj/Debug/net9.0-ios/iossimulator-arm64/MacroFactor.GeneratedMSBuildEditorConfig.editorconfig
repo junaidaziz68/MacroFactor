@@ -71,3 +71,15 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views/LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/LoginPage.xaml
+
+[/Users/J/Desktop/MacroFactor/MacroFactor/Views/OnboardingPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.OnboardingPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/OnboardingPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/OnboardingPage.xaml
+
+[/Users/J/Desktop/MacroFactor/MacroFactor/Views/WeightProgressPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MacroFactor.Views.WeightProgressPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/WeightProgressPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/WeightProgressPage.xaml

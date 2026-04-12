@@ -8,7 +8,6 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
             
-            <!-- Title for tracking workout session -->
             <Label Text="Log Workout"
                    FontSize="28"
                    FontAttributes="Bold"
@@ -21,57 +20,121 @@
                     StrokeThickness="1"
                     Padding="20">
                 
-                <!-- Grouping the workout inputs inside a styled border card -->
                 <VerticalStackLayout Spacing="15">
                     
                     <VerticalStackLayout Spacing="5">
-                        <!-- The specific exercise being performed -->
                         <Label Text="Exercise Name" TextColor="#6B7280" FontSize="14"/>
                         <Entry Placeholder="e.g., Bench Press" 
+                               Text="{Binding ExerciseName}"
                                BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
                                TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
                     </VerticalStackLayout>
 
-                    <!-- Organize the numeric metrics (sets, reps, weight) side-by-side for a compact layout -->
                     <Grid ColumnDefinitions="*, *, *" ColumnSpacing="10">
-                        <!-- Sets -->
                         <VerticalStackLayout Grid.Column="0" Spacing="5">
                             <Label Text="Sets" TextColor="#6B7280" FontSize="14"/>
-                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            <Entry Placeholder="0" 
+                                   Text="{Binding Sets}"
+                                   Keyboard="Numeric" 
+                                   BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" 
+                                   TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
                         </VerticalStackLayout>
 
-                        <!-- Reps -->
                         <VerticalStackLayout Grid.Column="1" Spacing="5">
                             <Label Text="Reps" TextColor="#6B7280" FontSize="14"/>
-                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            <Entry Placeholder="0" 
+                                   Text="{Binding Reps}"
+                                   Keyboard="Numeric" 
+                                   BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" 
+                                   TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
                         </VerticalStackLayout>
 
-                        <!-- Weight -->
                         <VerticalStackLayout Grid.Column="2" Spacing="5">
-                            <Label Text="Weight (lbs/kg)" TextColor="#6B7280" FontSize="14"/>
-                            <Entry Placeholder="0" Keyboard="Numeric" BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+                            <Label Text="Weight" TextColor="#6B7280" FontSize="14"/>
+                            <Entry Placeholder="0" 
+                                   Text="{Binding Weight}"
+                                   Keyboard="Numeric" 
+                                   BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}" 
+                                   TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
                         </VerticalStackLayout>
                     </Grid>
 
                     <VerticalStackLayout Spacing="5">
-                        <!-- Providing a multi-line editor so the user can add extra context for this exercise -->
                         <Label Text="Notes" TextColor="#6B7280" FontSize="14"/>
                         <Editor Placeholder="Optional notes about your workout" 
+                                Text="{Binding Notes}"
                                 HeightRequest="80"
                                 BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#374151}"
                                 TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
                     </VerticalStackLayout>
 
+                    <Button Command="{Binding LogWorkoutCommand}"
+                            TextColor="White"
+                            CornerRadius="8"
+                            HeightRequest="50"
+                            FontAttributes="Bold"
+                            Margin="0,10,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Text" Value="Log Workout" />
+                                <Setter Property="BackgroundColor" Value="Black" />
+                                <Style.Triggers>
+                                    <DataTrigger TargetType="Button" Binding="{Binding IsEditing}" Value="True">
+                                        <Setter Property="Text" Value="Update Workout" />
+                                        <Setter Property="BackgroundColor" Value="#3B82F6" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
                 </VerticalStackLayout>
             </Border>
 
-            <Button Text="Log Workout"
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    CornerRadius="8"
-                    HeightRequest="50"
-                    FontAttributes="Bold"
-                    Margin="0,20,0,0"/>
+            <!-- Listed Workouts -->
+            <Label Text="Today's Log" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111827, Dark=White}" Margin="0,10,0,0"/>
+
+            <CollectionView ItemsSource="{Binding Workouts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#E5E7EB" StrokeThickness="1" StrokeShape="RoundRectangle 12" Margin="0,5" BackgroundColor="{AppThemeBinding Light=White, Dark=#1F2937}" Padding="15">
+                            <Grid ColumnDefinitions="*, *, Auto" RowDefinitions="Auto, Auto, Auto">
+                                <!-- Exercise Name -->
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding ExerciseName}" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#111827, Dark=White}" VerticalOptions="Center"/>
+                                
+                                <!-- Weight -->
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Weight, StringFormat='{0} lbs'}" FontAttributes="Bold" FontSize="16" TextColor="#3B82F6" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                <!-- Sets x Reps -->
+                                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding StringFormat='{0} Sets x {1} Reps'}" BindingContext="{Binding}" FontSize="14" TextColor="#6B7280" Margin="0,5,0,0"/>
+                                
+                                <!-- Notes -->
+                                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Notes}" FontSize="12" TextColor="#9CA3AF" Margin="0,5,0,0" />
+
+                                <!-- Action Buttons -->
+                                <VerticalStackLayout Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" Spacing="5" VerticalOptions="Center" Margin="10,0,0,0">
+                                    <Button Text="Edit" 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditWorkoutCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#10B981"
+                                            FontAttributes="Bold"
+                                            HeightRequest="30"
+                                            Padding="5,0"/>
+                                    <Button Text="Delete" 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteWorkoutCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#EF4444"
+                                            FontAttributes="Bold"
+                                            HeightRequest="30"
+                                            Padding="5,0"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
         </VerticalStackLayout>
     </ScrollView>

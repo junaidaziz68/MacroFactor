@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MacroFactor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+5f2b12f5e09dec32e68c017fb81bcf50402b8761")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+63e0367396b28e5224dca8e11f626493edf0f2f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("MacroFactor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MacroFactor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

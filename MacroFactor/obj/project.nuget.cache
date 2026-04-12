@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cc5aYZWpgZ0=",
+  "dgSpecHash": "p01+alfjQAw=",
   "success": true,
   "projectFilePath": "/Users/J/Desktop/MacroFactor/MacroFactor/MacroFactor.csproj",
   "expectedPackageFiles": [
+    "/Users/J/.nuget/packages/communitytoolkit.mvvm/8.2.2/communitytoolkit.mvvm.8.2.2.nupkg.sha512",
     "/Users/J/.nuget/packages/googlegson/2.13.0.1/googlegson.2.13.0.1.nupkg.sha512",
     "/Users/J/.nuget/packages/microsoft.extensions.configuration/9.0.9/microsoft.extensions.configuration.9.0.9.nupkg.sha512",
     "/Users/J/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.9/microsoft.extensions.configuration.abstractions.9.0.9.nupkg.sha512",

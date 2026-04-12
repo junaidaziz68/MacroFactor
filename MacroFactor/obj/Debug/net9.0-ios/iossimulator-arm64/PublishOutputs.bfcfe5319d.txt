@@ -33,6 +33,7 @@
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/zh-Hans/Microsoft.Maui.Controls.resources.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/zh-Hant/Microsoft.Maui.Controls.resources.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/runtimeconfig.bin
+/Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/CommunityToolkit.Mvvm.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/Microsoft.Extensions.Configuration.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/Microsoft.Extensions.Configuration.Abstractions.dll
 /Users/J/Desktop/MacroFactor/MacroFactor/bin/Debug/net9.0-ios/iossimulator-arm64/publish/../MacroFactor.app/Microsoft.Extensions.DependencyInjection.dll

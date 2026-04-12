@@ -18,10 +18,28 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        
+        // Register Views and ViewModels
         builder.Services.AddSingleton<SupabaseService>();
-        builder.Services.AddSingleton<LoginPage>();
-        builder.Services.AddSingleton<LoginViewModel>();
+        
+        builder.Services.AddTransient<DashboardViewModel>();
+        builder.Services.AddTransient<DashboardPage>();
+        
+        builder.Services.AddTransient<LoginViewModel>();
+        builder.Services.AddTransient<LoginPage>();
+        
+        builder.Services.AddTransient<OnboardingViewModel>();
+        builder.Services.AddTransient<OnboardingPage>();
+        
+        builder.Services.AddSingleton<OpenFoodFactsApiService>();
+        builder.Services.AddSingleton<AddFoodViewModel>();
+        builder.Services.AddTransient<AddFoodPage>();
+
+        builder.Services.AddTransient<AddWorkoutViewModel>();
+        builder.Services.AddTransient<AddWorkoutPage>();
+
+        builder.Services.AddTransient<WeightProgressViewModel>();
+        builder.Services.AddTransient<WeightProgressPage>();
+
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
