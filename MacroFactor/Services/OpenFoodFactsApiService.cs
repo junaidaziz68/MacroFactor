@@ -9,16 +9,16 @@ public class OpenFoodFactsApiService
     public OpenFoodFactsApiService()
     {
         _httpClient = new HttpClient();
-        // Identify ourselves to avoid rate limits
+        
         _httpClient.DefaultRequestHeaders.Add("User-Agent", "MacroFactorApp/1.0 (StudentProject)");
     }
 
     public async Task<string> SearchFoodAsync(string query)
     {
-        // This is the link to the UK database. We add your search word to the end of it safely.
+        // open food facts api
         var requestUrl = $"https://uk.openfoodfacts.org/api/v2/search?search_terms={Uri.EscapeDataString(query)}&fields=code,product_name_en,product_name,nutriments&page_size=20";
         
-        // We try to grab the data up to 3 times, just in case the server is asleep or overloaded.
+        // grab the data 
         for (int i = 0; i < 3; i++)
         {
             var response = await _httpClient.GetAsync(requestUrl);
