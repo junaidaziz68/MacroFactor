@@ -40,7 +40,7 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Meals List -->
+                <!-- Meals List  -->
                 <CollectionView ItemsSource="{Binding Meals}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
