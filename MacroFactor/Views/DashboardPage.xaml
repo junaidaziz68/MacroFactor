@@ -5,6 +5,10 @@
     Title="Dashboard"
     BackgroundColor="{AppThemeBinding Light=#F3F4F6, Dark=#111827}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="🚪 Logout" Command="{Binding LogoutCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
             <!-- Personalized greeting section, tied to the user's name later if we add a user model -->

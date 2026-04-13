@@ -23,6 +23,7 @@ public class DashboardViewModel : INotifyPropertyChanged
 
     public Command NavigateToAddFoodCommand { get; }
     public Command NavigateToAddWorkoutCommand { get; }
+    public Command LogoutCommand { get; }
 
     private string _greetingMessage = "Welcome back!";
     public string GreetingMessage
@@ -69,6 +70,16 @@ public class DashboardViewModel : INotifyPropertyChanged
         // Setup the buttons so that clicking them moves you to the correct tabs
         NavigateToAddFoodCommand = new Command(async () => await Shell.Current.GoToAsync("//AddFoodPage"));
         NavigateToAddWorkoutCommand = new Command(async () => await Shell.Current.GoToAsync("//AddWorkoutPage"));
+        
+        // Sever the core Supabase tracking token and kill the Shell App navigation root to return them safely back to the Login splash
+        LogoutCommand = new Command(async () => {
+            await _supabaseService.GetClient().Auth.SignOut();
+            MainThread.BeginInvokeOnMainThread(() => 
+            {
+                var loginVm = new LoginViewModel(_supabaseService);
+                Application.Current.MainPage = new NavigationPage(new Views.LoginPage(loginVm));
+            });
+        });
 
         _ = LoadGoals();
 
